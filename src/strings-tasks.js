@@ -339,11 +339,12 @@ function countVowels(str) {
  *   isPalindrome('apple') => false
  *   isPalindrome('No lemon, no melon') => true
  */
-function isPalindrome(/* str */) {
-  // console.log(str);
-  // console.log(str.split('').reverse().join(''));
-  // return str.toLowerCase() === str.toLowerCase().split('').reverse().join('');
-  throw new Error('Not implemented');
+function isPalindrome(str) {
+  const newString = str.replace(/[ ,.!?]/g, '');
+  return (
+    newString.toLowerCase() ===
+    newString.toLowerCase().split('').reverse().join('')
+  );
 }
 
 /**
@@ -358,8 +359,17 @@ function isPalindrome(/* str */) {
  *   findLongestWord('A long and winding road') => 'winding'
  *   findLongestWord('No words here') => 'words'
  */
-function findLongestWord(/* sentence */) {
-  throw new Error('Not implemented');
+function findLongestWord(sentence) {
+  const longWord = sentence.split(' ');
+  let word = 0;
+  let result = '';
+  for (let i = 0; i < longWord.length; i += 1) {
+    if (longWord[i].length > word) {
+      word = longWord[i].length;
+      result = longWord[i];
+    }
+  }
+  return result;
 }
 
 /**
@@ -372,8 +382,13 @@ function findLongestWord(/* sentence */) {
  *   reverseWords('Hello World') => 'olleH dlroW'
  *   reverseWords('The Quick Brown Fox') => 'ehT kciuQ nworB xoF'
  */
-function reverseWords(/* str */) {
-  throw new Error('Not implemented');
+function reverseWords(str) {
+  const array = str.split(' ');
+  const arrayResult = [];
+  for (let i = 0; i < array.length; i += 1) {
+    arrayResult.push(array[i].split('').reverse().join(''));
+  }
+  return arrayResult.join(' ');
 }
 
 /**
@@ -387,8 +402,12 @@ function reverseWords(/* str */) {
  *   invertCase('JavaScript is Fun') => 'jAVAsCRIPT IS fUN'
  *   invertCase('12345') => '12345'
  */
-function invertCase(/* str */) {
-  throw new Error('Not implemented');
+function invertCase(str) {
+  return str.replace(/./g, (char) => {
+    return char === char.toUpperCase()
+      ? char.toLowerCase()
+      : char.toUpperCase();
+  });
 }
 
 /**
