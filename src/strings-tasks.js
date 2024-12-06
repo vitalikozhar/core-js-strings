@@ -269,8 +269,8 @@ function reverseString(str) {
  *   orderAlphabetically('textbook') => 'bekoottx'
  *   orderAlphabetically('abc123xyz') => '123abcxyz'
  */
-function orderAlphabetically(/* str */) {
-  throw new Error('Not implemented');
+function orderAlphabetically(str) {
+  return str.split('').sort().join('');
 }
 
 /**
@@ -285,8 +285,9 @@ function orderAlphabetically(/* str */) {
  *   containsSubstring('JavaScript is Fun', 'Python') => false
  *   containsSubstring('12345', '34') => true
  */
-function containsSubstring(/* str, substring */) {
-  throw new Error('Not implemented');
+function containsSubstring(str, substring) {
+  if (typeof str !== 'string' || typeof substring !== 'string') return false;
+  return str.includes(substring);
 }
 
 /**
@@ -303,8 +304,26 @@ function containsSubstring(/* str, substring */) {
  *   countVowels('aEiOu') => 5
  *   countVowels('XYZ') => 1
  */
-function countVowels(/* str */) {
-  throw new Error('Not implemented');
+function countVowels(str) {
+  let sum = 0;
+  const array = [
+    'a',
+    'e',
+    'i',
+    'o',
+    'u',
+    'y',
+    'A',
+    'E',
+    'I',
+    'O',
+    'U',
+    'Y',
+  ].join('');
+  for (let i = 0; i < str.length; i += 1) {
+    if (array.indexOf(str[i]) >= 0) sum += 1;
+  }
+  return sum;
 }
 
 /**
@@ -320,9 +339,11 @@ function countVowels(/* str */) {
  *   isPalindrome('apple') => false
  *   isPalindrome('No lemon, no melon') => true
  */
-function isPalindrome(/* str */) {
-  throw new Error('Not implemented');
-}
+  // function isPalindrome(str) {
+  //   console.log(str);
+  //   console.log(str.split('').reverse().join(''));
+  //   return str.toLowerCase() === str.toLowerCase().split('').reverse().join('');
+  // }
 
 /**
  * Find the longest word in the sentence. If there are multiple longest words,
